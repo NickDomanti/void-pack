@@ -2,7 +2,8 @@
 
 <template>
   <div class="vp-page">
-    <div class="mask"></div>
+    <div class="bg-1"></div>
+    <div class="bg-2"></div>
 
     <header>
       <h1>Void-Pack</h1>
@@ -18,31 +19,35 @@
 
 <style scoped>
 .vp-page {
-  position: relative;
-  z-index: 0;
-  background: url('./assets/background.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
-  min-height: 100svh;
-
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  min-height: 100svh;
 }
 
-.vp-page > :not(.mask) {
+.vp-page > * {
   z-index: 2;
 }
 
-.mask {
-  position: absolute;
+.bg-1,
+.bg-2 {
+  position: fixed;
   top: 0;
   right: 0;
   left: 0;
   bottom: 0;
-  z-index: 1;
+}
 
+.bg-1 {
+  z-index: 0;
+  background: url('./assets/background.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.bg-2 {
+  z-index: 1;
   background: black url('./assets/gridbg.png') repeat center;
   opacity: 0.7;
 }
