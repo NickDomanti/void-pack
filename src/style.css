@@ -1,0 +1,63 @@
+@font-face {
+  font-family: 'glitch-robot';
+  src: url('./assets/glitch-robot.ttf');
+}
+
+@font-face {
+  font-family: 'glitch';
+  src: url('./assets/glitch.ttf');
+}
+
+:root {
+  --clr-white: #f1f1f1;
+  --clr-black: #0f0f0f;
+  --clr-red1: #fd0202;
+  --clr-red2: #700504;
+  --clr-red3: #4f0707;
+  --clr-red4: #370d0c;
+
+  --screen-xxl: 1536px;
+  --screen-xl: 1280px;
+  --screen-lg: 1024px;
+  --screen-md: 768px;
+  --screen-sm: 640px;
+
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  font-size: 16px;
+
+  color-scheme: dark;
+  color: var(--clr-white);
+  background-color: var(--clr-black);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  overflow-x: hidden;
+  scrollbar-width: none;
+  min-height: 100svh;
+  min-width: 100svw;
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+h2 {
+  font-size: 2.5rem;
+}
+
+h3 {
+  font-size: 2rem;
+}
