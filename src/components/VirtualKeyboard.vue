@@ -3,6 +3,8 @@ import { useVModel } from '@vueuse/core'
 import SimpleKeyboard from 'simple-keyboard'
 import 'simple-keyboard/build/css/index.css'
 import { onMounted, ref, watch } from 'vue'
+import sound from '../assets/audio/numpad.mp3'
+import { getAudio } from '../utils'
 
 const props = defineProps<{
   modelValue: string
@@ -25,6 +27,8 @@ onMounted(() => {
       model.value = input
     },
     onKeyPress(button) {
+      getAudio(sound, 0.2).play()
+
       if (button === '{bksp}') model.value = model.value.slice(0, -1)
     },
     layout: {

@@ -1,13 +1,20 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import sound from '../assets/audio/welcome.mp3'
+import { getAudio } from '../utils'
 
 const emit = defineEmits<{
   (e: 'active-toggled', active: boolean): void
 }>()
 
+const audio = getAudio(sound, 0.5)
 const active = ref(false)
 
 function activate() {
+  audio.pause()
+  audio.currentTime = 0
+  audio.play()
+
   active.value = !active.value
   emit('active-toggled', active.value)
 }
