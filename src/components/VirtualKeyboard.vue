@@ -73,7 +73,6 @@ onMounted(() => {
 }
 
 .hg-theme-default :deep(.hg-button) {
-  background: transparent;
   border: 1px solid var(--clr-red2);
   border-radius: 0;
   color: var(--clr-red1);
@@ -81,6 +80,9 @@ onMounted(() => {
   width: auto;
   font-family: Quantico;
   font-weight: bold;
+  background-color: transparent;
+  will-change: background-color;
+  transition: background-color 100ms;
 }
 
 .hg-theme-default :deep(.hg-activeButton) {
