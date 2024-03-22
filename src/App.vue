@@ -1,7 +1,12 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { ref } from 'vue'
+import InteractiveLogo from './components/InteractiveLogo.vue'
+
+const showRouterView = ref(false)
+</script>
 
 <template>
-  <div class="vp-page">
+  <div class="page">
     <div class="bg-1"></div>
     <div class="bg-2"></div>
 
@@ -9,7 +14,17 @@
       <h1>Void-Pack</h1>
     </header>
     <main>
-      <RouterView />
+      <InteractiveLogo @active-toggled="(a) => (showRouterView = a)" />
+
+      <RouterView v-slot="{ Component }">
+        <Transition>
+          <component
+            v-if="showRouterView"
+            :is="Component"
+            class="main-content"
+          />
+        </Transition>
+      </RouterView>
     </main>
     <footer>
       <h3>Click on the logo to proceed</h3>
@@ -18,7 +33,7 @@
 </template>
 
 <style scoped>
-.vp-page {
+.page {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -26,7 +41,7 @@
   min-height: 100svh;
 }
 
-.vp-page > * {
+.page > * {
   z-index: 2;
 }
 
@@ -41,14 +56,14 @@
 
 .bg-1 {
   z-index: 0;
-  background: url('./assets/background.jpg');
+  background: url('./assets/img/background.jpg');
   background-size: cover;
   background-repeat: no-repeat;
 }
 
 .bg-2 {
   z-index: 1;
-  background: black url('./assets/gridbg.png') repeat center;
+  background: black url('./assets/img/gridbg.png') repeat center;
   opacity: 0.7;
 }
 
@@ -62,5 +77,31 @@ footer {
   color: var(--clr-red1);
   text-shadow: 0 0 20px var(--clr-red1);
   text-transform: uppercase;
+  user-select: none;
+}
+
+main {
+  width: 100svw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.main-content {
+  translate: 75% 0;
+}
+
+.v-enter-active {
+  transition: opacity 1s ease;
+}
+
+.v-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
 }
 </style>

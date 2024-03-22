@@ -1,6 +1,6 @@
 @font-face {
   font-family: Glitch;
-  src: url('./assets/glitch.ttf');
+  src: url('./assets/fonts/glitch.ttf');
 }
 
 @font-face {
@@ -8,8 +8,7 @@
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url('https://cdn.robertsspaceindustries.com/static/fonts/quantico/Quantico-Regular.woff2')
-    format('woff2');
+  src: url('./assets/fonts/quantico.woff2') format('woff2');
 }
 
 :root {
@@ -39,6 +38,11 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background-color: var(--clr-red1);
+  color: var(--clr-white);
 }
 
 ::-webkit-scrollbar {

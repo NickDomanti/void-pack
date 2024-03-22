@@ -1,17 +1,22 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 
+const emit = defineEmits<{
+  (e: 'active-toggled', active: boolean): void
+}>()
+
 const active = ref(false)
 
 function activate() {
   active.value = !active.value
+  emit('active-toggled', active.value)
 }
 </script>
 
 <template>
   <div class="logo">
     <div class="logo-mask" @click="activate">
-      <img src="../assets/logo.png" :class="['logo-img', { active }]" />
+      <img src="../assets/img/logo.png" :class="['logo-img', { active }]" />
     </div>
   </div>
 </template>
@@ -27,6 +32,8 @@ function activate() {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: absolute;
+  user-select: none;
 }
 
 .logo-mask {

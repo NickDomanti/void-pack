@@ -9,6 +9,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@vueuse/core": "^10.9.0",
+    "simple-keyboard": "^3.7.69",
     "vue": "^3.4.21",
     "vue-router": "^4.3.0"
   },
