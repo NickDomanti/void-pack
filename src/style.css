@@ -7,8 +7,34 @@
   font-family: Quantico;
   font-style: normal;
   font-weight: 400;
-  font-display: swap;
   src: url('./assets/fonts/quantico.woff2') format('woff2');
+}
+@font-face {
+  font-family: Quantico;
+  font-style: normal;
+  font-weight: 700;
+  src: url('./assets/fonts/quantico-bold.woff2') format('woff2');
+}
+@font-face {
+  font-family: Quantico;
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url('./assets/fonts/quantico-italic.woff2') format('woff2');
+}
+@font-face {
+  font-family: Quantico;
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: url('./assets/fonts/quantico-bolditalic.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: Pixel;
+  font-style: normal;
+  font-weight: 400;
+  src: url('./assets/fonts/pixel.ttf');
 }
 
 :root {
