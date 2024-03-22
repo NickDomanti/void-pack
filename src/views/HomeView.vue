@@ -4,12 +4,16 @@ import VirtualKeyboard from '../components/VirtualKeyboard.vue'
 
 const input = ref('')
 const correctInput = ref<boolean>()
+const animateResult = ref(false)
 
 function showResult(correct: boolean) {
   correctInput.value = correct
+
+  // restart animation
+  animateResult.value = false
   setTimeout(() => {
-    correctInput.value = undefined
-  }, 2000)
+    animateResult.value = true
+  }, 100)
 }
 </script>
 
@@ -20,7 +24,8 @@ function showResult(correct: boolean) {
       {
         'result': correctInput != null,
         'result--correct': correctInput,
-        'result--wrong': correctInput === false
+        'result--wrong': correctInput === false,
+        'result--animated': correctInput && animateResult
       }
     ]"
   >
@@ -41,7 +46,8 @@ function showResult(correct: boolean) {
   border: 1px solid var(--clr-red2);
   padding: 1rem;
   background-color: rgba(0, 0, 0, 0.5);
-  animation: glare-light-up 500ms ease 300ms 1 normal forwards;
+  animation: glare-light-up 500ms ease 300ms;
+  animation-fill-mode: forwards;
   position: relative;
 }
 
@@ -60,12 +66,15 @@ function showResult(correct: boolean) {
   font-size: 1.75rem;
   white-space: nowrap;
   color: var(--clr-red1);
-  animation: fading-result 2s linear;
-  animation-iteration-count: 1;
 }
 
 .home.result--wrong::before {
   content: 'Wrong Passcode';
+}
+
+.home.result--wrong.result--animated::before {
+  animation: fading-result 1s linear;
+  animation-fill-mode: forwards;
 }
 
 .home.result--correct::before {
@@ -109,6 +118,9 @@ function showResult(correct: boolean) {
 }
 
 @keyframes fading-result {
+  0% {
+    opacity: 1;
+  }
   100% {
     opacity: 0;
   }
