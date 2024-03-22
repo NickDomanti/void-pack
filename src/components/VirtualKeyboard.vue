@@ -82,4 +82,8 @@ onMounted(() => {
   font-family: Quantico;
   font-weight: bold;
 }
+
+.hg-theme-default :deep(.hg-activeButton) {
+  background-color: var(--clr-red3);
+}
 </style>
