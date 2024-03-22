@@ -25,7 +25,7 @@ function showResult(correct: boolean) {
         'result': correctInput != null,
         'result--correct': correctInput,
         'result--wrong': correctInput === false,
-        'result--animated': correctInput && animateResult
+        'result--animated': correctInput != null && animateResult
       }
     ]"
   >
@@ -73,7 +73,7 @@ function showResult(correct: boolean) {
 }
 
 .home.result--wrong.result--animated::before {
-  animation: fading-result 1s linear;
+  animation: fading-result 2s linear;
   animation-fill-mode: forwards;
 }
 
