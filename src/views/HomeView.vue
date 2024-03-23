@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import VirtualKeyboard from '../components/VirtualKeyboard.vue'
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
 
 const input = ref('')
 const correctInput = ref<boolean>()
@@ -12,6 +15,8 @@ function showResult(correct: boolean) {
   // restart animation
   animateResult.value = false
   setTimeout(() => (animateResult.value = true), 100)
+
+  if (correct) setTimeout(() => router.push('/directory'), 1000)
 }
 </script>
 
