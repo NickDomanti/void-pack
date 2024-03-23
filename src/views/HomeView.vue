@@ -21,11 +21,10 @@ async function showResult(correct: boolean) {
   animateResult.value = true
 
   if (correct) {
-    showFooterHint.value = false
-
     getAudio(sound, 0.8).play()
     await delay(1)
 
+    showFooterHint.value = false
     router.push('/decryption')
   }
 }
