@@ -7,6 +7,7 @@ import correctPasscodeSound from '../assets/audio/correct-passcode.mp3'
 import beepSound from '../assets/audio/numpad.mp3'
 import wrongPasscodeSound from '../assets/audio/wrong-passcode.mp3'
 import { getAudio } from '../utils'
+import { useRouter } from 'vue-router'
 
 const props = defineProps<{
   modelValue: string
@@ -19,6 +20,8 @@ const emit = defineEmits<{
 
 const model = useVModel(props, 'modelValue', emit)
 watch(model, (newValue) => keyboard.value?.setInput(newValue))
+
+const router = useRouter()
 
 const keyboardClass = 'keyboard'
 const keyboard = ref<SimpleKeyboard>()
@@ -35,6 +38,7 @@ onMounted(() => {
 
         if (correct) {
           getAudio(correctPasscodeSound, 0.8).play()
+          setTimeout(() => router.push('/directory'), 1000)
         } else getAudio(wrongPasscodeSound, 1).play()
 
         emit('input-entered', correct)

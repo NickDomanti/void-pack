@@ -2,10 +2,13 @@
 import { ref } from 'vue'
 import sound from '../assets/audio/welcome.mp3'
 import { getAudio } from '../utils'
+import { useRouter } from 'vue-router'
 
 const emit = defineEmits<{
   (e: 'active-toggled', active: boolean): void
 }>()
+
+const router = useRouter()
 
 const audio = getAudio(sound, 0.5)
 const active = ref(false)
@@ -17,6 +20,8 @@ function activate() {
 
   active.value = !active.value
   emit('active-toggled', active.value)
+
+  router.push('/')
 }
 </script>
 

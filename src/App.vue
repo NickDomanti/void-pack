@@ -17,13 +17,11 @@ const showRouterView = ref(false)
       <InteractiveLogo @active-toggled="(a) => (showRouterView = a)" />
 
       <RouterView v-slot="{ Component }">
-        <Transition>
-          <component
-            v-if="showRouterView"
-            :is="Component"
-            class="main-content"
-          />
-        </Transition>
+        <div class="main-content">
+          <Transition mode="out-in">
+            <component v-if="showRouterView" :is="Component" />
+          </Transition>
+        </div>
       </RouterView>
     </main>
     <footer>
@@ -84,11 +82,15 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative;
 }
 
 .main-content {
   translate: 75% 0;
+  height: 50svh;
+  width: 30svw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .v-enter-active {

@@ -11,9 +11,7 @@ function showResult(correct: boolean) {
 
   // restart animation
   animateResult.value = false
-  setTimeout(() => {
-    animateResult.value = true
-  }, 100)
+  setTimeout(() => (animateResult.value = true), 100)
 }
 </script>
 
