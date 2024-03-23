@@ -1,8 +1,12 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue'
 import InteractiveLogo from './components/InteractiveLogo.vue'
+import { useRouter } from 'vue-router'
 
 const showRouterView = ref(false)
+const router = useRouter()
+
+onMounted(() => router.push('/'))
 </script>
 
 <template>
@@ -26,6 +30,7 @@ const showRouterView = ref(false)
     </main>
     <footer>
       <h3>Click on the logo to proceed</h3>
+      <p>Fibonacci is the key</p>
     </footer>
   </div>
 </template>
@@ -71,10 +76,20 @@ footer {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  font-family: 'glitch';
-  text-shadow: 0 0 20px var(--clr-red1);
   text-transform: uppercase;
   user-select: none;
+}
+
+h1,
+h3 {
+  font-family: Glitch;
+  text-shadow: 0 0 20px var(--clr-red1);
+  margin: 0;
+}
+
+footer p {
+  margin: 0;
+  text-align: center;
 }
 
 main {

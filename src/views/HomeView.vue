@@ -2,6 +2,7 @@
 import { ref } from 'vue'
 import VirtualKeyboard from '../components/VirtualKeyboard.vue'
 import { useRouter } from 'vue-router'
+import { delay } from '../utils'
 
 const router = useRouter()
 
@@ -9,14 +10,18 @@ const input = ref('')
 const correctInput = ref<boolean>()
 const animateResult = ref(false)
 
-function showResult(correct: boolean) {
+async function showResult(correct: boolean) {
   correctInput.value = correct
 
   // restart animation
   animateResult.value = false
-  setTimeout(() => (animateResult.value = true), 100)
+  await delay(0.1)
+  animateResult.value = true
 
-  if (correct) setTimeout(() => router.push('/directory'), 1000)
+  if (correct) {
+    await delay(1)
+    router.push('/decryption')
+  }
 }
 </script>
 
