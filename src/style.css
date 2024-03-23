@@ -57,8 +57,7 @@
   font-size: 16px;
 
   color-scheme: dark;
-  color: var(--clr-white);
-  background-color: var(--clr-black);
+  color: var(--clr-red1);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;

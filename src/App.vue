@@ -74,7 +74,6 @@ footer {
   flex-direction: column;
   justify-content: center;
   font-family: 'glitch';
-  color: var(--clr-red1);
   text-shadow: 0 0 20px var(--clr-red1);
   text-transform: uppercase;
   user-select: none;

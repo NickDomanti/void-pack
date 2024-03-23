@@ -33,8 +33,9 @@ onMounted(() => {
       if (button === '{enter}') {
         const correct = model.value === '112358'
 
-        if (correct) getAudio(correctPasscodeSound, 0.8).play()
-        else getAudio(wrongPasscodeSound, 1).play()
+        if (correct) {
+          getAudio(correctPasscodeSound, 0.8).play()
+        } else getAudio(wrongPasscodeSound, 1).play()
 
         emit('input-entered', correct)
         return
@@ -75,7 +76,6 @@ onMounted(() => {
 .hg-theme-default :deep(.hg-button) {
   border: 1px solid var(--clr-red2);
   border-radius: 0;
-  color: var(--clr-red1);
   margin: 0 !important;
   width: auto;
   font-family: Quantico;

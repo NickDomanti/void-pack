@@ -65,7 +65,6 @@ function showResult(correct: boolean) {
   font-family: Pixel;
   font-size: 1.75rem;
   white-space: nowrap;
-  color: var(--clr-red1);
 }
 
 .home.result--wrong::before {
@@ -82,7 +81,6 @@ function showResult(correct: boolean) {
 }
 
 .input {
-  color: var(--clr-red1);
   border: 1px solid var(--clr-red2);
   padding: 0.5rem;
   height: 1.5rem;
