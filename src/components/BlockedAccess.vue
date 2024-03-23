@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { useRouter } from 'vue-router'
 import sound from '../assets/audio/success.mp3'
-import VirtualKeyboard from '../components/VirtualKeyboard.vue'
+import Numpad from './Numpad.vue'
 import { delay, getAudio } from '../utils'
-import { showFooterHint } from '../global'
 
-const router = useRouter()
+const emit = defineEmits<{
+  (e: 'correct-input'): void
+}>()
 
 const input = ref('')
 const correctInput = ref<boolean>()
@@ -24,8 +24,7 @@ async function showResult(correct: boolean) {
     getAudio(sound, 0.8).play()
     await delay(1)
 
-    showFooterHint.value = false
-    router.push('/decryption')
+    emit('correct-input')
   }
 }
 </script>
@@ -47,7 +46,7 @@ async function showResult(correct: boolean) {
       <span>{{ input }}</span>
       <div class="fake-tick"></div>
     </div>
-    <VirtualKeyboard v-model="input" @input-entered="showResult" />
+    <Numpad v-model="input" @input-entered="showResult" />
   </div>
 </template>
 

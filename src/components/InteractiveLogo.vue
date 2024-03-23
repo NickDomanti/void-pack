@@ -2,13 +2,11 @@
 import { ref } from 'vue'
 import sound from '../assets/audio/welcome.mp3'
 import { getAudio } from '../utils'
-import { useRouter } from 'vue-router'
+import { AccessStatus } from '../types/access-status'
 
 const emit = defineEmits<{
-  (e: 'active-toggled', active: boolean): void
+  (e: 'active-toggled', active: AccessStatus): void
 }>()
-
-const router = useRouter()
 
 const audio = getAudio(sound, 0.5)
 const active = ref(false)
@@ -19,9 +17,7 @@ function activate() {
   audio.play()
 
   active.value = !active.value
-  emit('active-toggled', active.value)
-
-  router.push('/')
+  emit('active-toggled', active.value ? 'requested' : 'denied')
 }
 </script>
 

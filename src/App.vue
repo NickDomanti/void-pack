@@ -1,13 +1,11 @@
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
+import { ref } from 'vue'
+import BlockedAccess from './components/BlockedAccess.vue'
+import Decryption from './components/Decryption.vue'
 import InteractiveLogo from './components/InteractiveLogo.vue'
-import { useRouter } from 'vue-router'
-import { showFooterHint } from './global'
+import { AccessStatus } from './types/access-status'
 
-const showRouterView = ref(false)
-const router = useRouter()
-
-onMounted(() => router.push('/'))
+const access = ref<AccessStatus>('denied')
 </script>
 
 <template>
@@ -19,19 +17,27 @@ onMounted(() => router.push('/'))
       <h1>Void-Pack</h1>
     </header>
     <main>
-      <InteractiveLogo @active-toggled="(a) => (showRouterView = a)" />
+      <InteractiveLogo @active-toggled="(a) => (access = a)" />
 
       <RouterView v-slot="{ Component }">
         <div class="main-content">
           <Transition mode="out-in">
-            <component v-if="showRouterView" :is="Component" />
+            <BlockedAccess
+              v-if="access === 'requested'"
+              @correct-input="access = 'decrypting'"
+            />
+            <Decryption
+              v-else-if="access === 'decrypting'"
+              @decryption-completed="access = 'granted'"
+            />
+            <component v-else-if="access === 'granted'" :is="Component" />
           </Transition>
         </div>
       </RouterView>
     </main>
     <footer>
       <Transition>
-        <div v-if="showFooterHint">
+        <div v-if="access === 'denied' || access === 'requested'">
           <h3>Click on the logo to proceed</h3>
           <p>Fibonacci is the key</p>
         </div>

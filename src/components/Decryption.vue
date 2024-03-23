@@ -5,8 +5,11 @@ import successSound from '../assets/audio/success.mp3'
 import { delay, getAudio } from '../utils'
 import { useRouter } from 'vue-router'
 
-const router = useRouter()
 const glare = ref(false)
+
+const emit = defineEmits<{
+  (e: 'decryption-completed'): void
+}>()
 
 onMounted(async () => {
   getAudio(decryptionSound, 0.5).play()
@@ -18,7 +21,7 @@ onMounted(async () => {
   getAudio(successSound, 0.8).play()
   await delay(1)
 
-  router.push('/directory')
+  emit('decryption-completed')
 })
 </script>
 
