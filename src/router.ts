@@ -7,6 +7,11 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import('./views/HomeView.vue')
   },
   {
+    path: '/directory',
+    name: 'Directory',
+    component: () => import('./views/DirectoryView.vue')
+  },
+  {
     path: '/:catchall(.*)',
     name: 'Not Found',
     component: () => import('./views/NotFoundView.vue')

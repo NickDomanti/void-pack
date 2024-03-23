@@ -19,6 +19,7 @@ function showResult(correct: boolean) {
   <div
     :class="[
       'home',
+      'glare',
       {
         'result': correctInput != null,
         'result--correct': correctInput,
@@ -44,8 +45,6 @@ function showResult(correct: boolean) {
   border: 1px solid var(--clr-red2);
   padding: 1rem;
   background-color: rgba(0, 0, 0, 0.5);
-  animation: glare-light-up 500ms ease 300ms;
-  animation-fill-mode: forwards;
   position: relative;
 }
 
@@ -104,12 +103,6 @@ function showResult(correct: boolean) {
   }
   100% {
     opacity: 0;
-  }
-}
-
-@keyframes glare-light-up {
-  100% {
-    box-shadow: 0 0 2rem 0.25rem var(--clr-red1);
   }
 }
 

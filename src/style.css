@@ -94,3 +94,8 @@ h2 {
 h3 {
   font-size: 2rem;
 }
+
+a {
+  color: var(--clr-red1);
+  text-decoration: none;
+}

@@ -93,6 +93,11 @@ main {
   align-items: center;
 }
 
+.main-content > .glare {
+  animation: glare-light-up 500ms ease 300ms;
+  animation-fill-mode: forwards;
+}
+
 .v-enter-active {
   transition: opacity 1s ease;
 }
@@ -104,5 +109,11 @@ main {
 .v-enter-from,
 .v-leave-to {
   opacity: 0;
+}
+
+@keyframes glare-light-up {
+  100% {
+    box-shadow: 0 0 2rem 0.25rem var(--clr-red1);
+  }
 }
 </style>
