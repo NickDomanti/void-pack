@@ -3,7 +3,6 @@ import { onMounted, ref } from 'vue'
 import decryptionSound from '../assets/audio/decryption.mp3'
 import successSound from '../assets/audio/success.mp3'
 import { delay, getAudio } from '../utils'
-import { useRouter } from 'vue-router'
 
 const glare = ref(false)
 
