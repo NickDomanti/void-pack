@@ -3,7 +3,6 @@ import { useVModel } from '@vueuse/core'
 import SimpleKeyboard from 'simple-keyboard'
 import 'simple-keyboard/build/css/index.css'
 import { onMounted, ref, watch } from 'vue'
-import correctPasscodeSound from '../assets/audio/success.mp3'
 import beepSound from '../assets/audio/numpad.mp3'
 import wrongPasscodeSound from '../assets/audio/wrong-passcode.mp3'
 import { getAudio } from '../utils'
@@ -33,8 +32,7 @@ onMounted(() => {
       if (button === '{enter}') {
         const correct = model.value === '112358'
 
-        if (correct) getAudio(correctPasscodeSound, 0.8).play()
-        else getAudio(wrongPasscodeSound, 1).play()
+        if (!correct) getAudio(wrongPasscodeSound, 1).play()
 
         emit('input-entered', correct)
         return

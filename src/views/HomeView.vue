@@ -1,8 +1,10 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import VirtualKeyboard from '../components/VirtualKeyboard.vue'
 import { useRouter } from 'vue-router'
-import { delay } from '../utils'
+import sound from '../assets/audio/success.mp3'
+import VirtualKeyboard from '../components/VirtualKeyboard.vue'
+import { delay, getAudio } from '../utils'
+import { showFooterHint } from '../global'
 
 const router = useRouter()
 
@@ -19,7 +21,11 @@ async function showResult(correct: boolean) {
   animateResult.value = true
 
   if (correct) {
+    showFooterHint.value = false
+
+    getAudio(sound, 0.8).play()
     await delay(1)
+
     router.push('/decryption')
   }
 }

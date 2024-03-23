@@ -2,6 +2,7 @@
 import { onMounted, ref } from 'vue'
 import InteractiveLogo from './components/InteractiveLogo.vue'
 import { useRouter } from 'vue-router'
+import { showFooterHint } from './global'
 
 const showRouterView = ref(false)
 const router = useRouter()
@@ -29,8 +30,12 @@ onMounted(() => router.push('/'))
       </RouterView>
     </main>
     <footer>
-      <h3>Click on the logo to proceed</h3>
-      <p>Fibonacci is the key</p>
+      <Transition>
+        <div v-if="showFooterHint">
+          <h3>Click on the logo to proceed</h3>
+          <p>Fibonacci is the key</p>
+        </div>
+      </Transition>
     </footer>
   </div>
 </template>
