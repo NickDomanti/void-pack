@@ -53,7 +53,6 @@ function activate() {
   width: var(--mask-size);
   border-radius: 50%;
   position: relative;
-  cursor: pointer;
 }
 
 .logo-img {
@@ -65,6 +64,7 @@ function activate() {
   top: 49.5%;
   left: 49.5%;
   translate: -50% -50%;
+  cursor: pointer;
 }
 
 .logo-mask:hover .logo-img,

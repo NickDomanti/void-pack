@@ -23,6 +23,7 @@
 .not-found {
   position: relative;
   width: 246px;
+  user-select: none;
 }
 
 .not-found::before {
