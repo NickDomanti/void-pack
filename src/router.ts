@@ -4,7 +4,7 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
     name: 'Home',
-    component: () => import('./views/DirectoryView.vue')
+    component: () => import('./views/HomeView.vue')
   },
   {
     path: '/:catchall(.*)',

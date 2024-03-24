@@ -13,7 +13,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="directory glare">
+  <div class="home glare">
     <RouterLink to="/history">I. History</RouterLink>
     <RouterLink to="/manifesto">II. Manifesto</RouterLink>
     <RouterLink to="/charter">III. Charter</RouterLink>
@@ -22,7 +22,7 @@ onMounted(() => {
 </template>
 
 <style scoped>
-.directory {
+.home {
   flex-grow: 1;
   display: flex;
   flex-direction: column;
