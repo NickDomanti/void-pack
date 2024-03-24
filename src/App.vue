@@ -1,11 +1,14 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue'
 import BlockedAccess from './components/BlockedAccess.vue'
 import Decryption from './components/Decryption.vue'
 import InteractiveLogo from './components/InteractiveLogo.vue'
+import { store } from './store'
 import { AccessStatus } from './types/access-status'
 
 const access = ref<AccessStatus>('denied')
+
+onMounted(async () => await store.value.populateContent())
 </script>
 
 <template>
@@ -111,9 +114,9 @@ main {
 }
 
 .main-content {
-  translate: 75% 0;
+  translate: 50% 0;
   height: 50svh;
-  width: 30svw;
+  width: 35svw;
   display: flex;
   justify-content: center;
   align-items: center;

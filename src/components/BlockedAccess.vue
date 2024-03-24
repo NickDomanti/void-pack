@@ -32,7 +32,8 @@ async function showResult(correct: boolean) {
 <template>
   <div
     :class="[
-      'home',
+      'numpad',
+      'dark-bg',
       'glare',
       {
         'result': correctInput != null,
@@ -51,24 +52,17 @@ async function showResult(correct: boolean) {
 </template>
 
 <style scoped>
-.home {
+.numpad {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  width: 20svw;
+  width: 15svw;
   border: 1px solid var(--clr-red2);
   padding: 1rem;
-  background-color: rgba(0, 0, 0, 0.5);
   position: relative;
 }
 
-@media (max-width: var(--screen-lg)) {
-  .home {
-    width: 30svw;
-  }
-}
-
-.home.result::before {
+.numpad.result::before {
   position: absolute;
   top: -4rem;
   left: 50%;
@@ -78,16 +72,16 @@ async function showResult(correct: boolean) {
   white-space: nowrap;
 }
 
-.home.result--wrong::before {
+.numpad.result--wrong::before {
   content: 'Wrong Passcode';
 }
 
-.home.result--wrong.result--animated::before {
+.numpad.result--wrong.result--animated::before {
   animation: fading-result 2s linear;
   animation-fill-mode: forwards;
 }
 
-.home.result--correct::before {
+.numpad.result--correct::before {
   content: 'Correct Passcode';
 }
 

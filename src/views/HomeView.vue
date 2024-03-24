@@ -13,10 +13,10 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="home glare">
-    <RouterLink to="/history">I. History</RouterLink>
-    <RouterLink to="/manifesto">II. Manifesto</RouterLink>
-    <RouterLink to="/charter">III. Charter</RouterLink>
+  <div class="home dark-bg glare">
+    <RouterLink to="/about/history">I. History</RouterLink>
+    <RouterLink to="/about/manifesto">II. Manifesto</RouterLink>
+    <RouterLink to="/about/charter">III. Charter</RouterLink>
     <RouterLink to="/organization">IV. Organization</RouterLink>
   </div>
 </template>
@@ -29,7 +29,6 @@ onMounted(() => {
   gap: 0.5rem;
   border: 1px solid var(--clr-red2);
   padding: 1rem;
-  background-color: rgba(0, 0, 0, 0.5);
 }
 
 a {

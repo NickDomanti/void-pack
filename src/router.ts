@@ -7,9 +7,9 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import('./views/HomeView.vue')
   },
   {
-    path: '/history',
-    name: 'History',
-    component: () => import('./views/HistoryView.vue')
+    path: '/about/:content',
+    name: 'About',
+    component: () => import('./views/AboutView.vue')
   },
   {
     path: '/:catchall(.*)',

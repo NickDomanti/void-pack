@@ -26,7 +26,7 @@ onMounted(async () => {
 
 <template>
   <div :class="['decryption', { glare }]">
-    <div class="progress-wrapper">
+    <div class="progress-wrapper dark-bg">
       <div class="progress"></div>
     </div>
   </div>
@@ -39,7 +39,6 @@ onMounted(async () => {
 
 .progress-wrapper {
   border: 1px solid var(--clr-red2);
-  background-color: rgba(0, 0, 0, 0.5);
   position: relative;
 }
 

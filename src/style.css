@@ -70,32 +70,43 @@
   color: var(--clr-white);
 }
 
-::-webkit-scrollbar {
-  display: none;
-}
-
 body {
   padding: 0;
   margin: 0;
   overflow-x: hidden;
-  scrollbar-width: none;
   min-height: 100svh;
   min-width: 100svw;
 }
 
 h1 {
-  font-size: 3rem;
+  font-size: 3.5rem;
 }
 
 h2 {
-  font-size: 2.5rem;
+  font-size: 3rem;
 }
 
 h3 {
+  font-size: 2.5rem;
+}
+
+h4 {
   font-size: 2rem;
+}
+
+h5 {
+  font-size: 1.5rem;
+}
+
+h6 {
+  font-size: 1rem;
 }
 
 a {
   color: var(--clr-red1);
   text-decoration: none;
+}
+
+.dark-bg {
+  background-color: rgba(0, 0, 0, 0.5);
 }
