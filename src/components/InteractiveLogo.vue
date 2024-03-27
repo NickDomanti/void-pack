@@ -4,6 +4,10 @@ import sound from '../assets/audio/welcome.mp3'
 import { getAudio } from '../utils'
 import { AccessStatus } from '../types/access-status'
 
+defineProps<{
+  sidelined: boolean
+}>()
+
 const emit = defineEmits<{
   (e: 'active-toggled', active: AccessStatus): void
 }>()
@@ -22,9 +26,9 @@ function activate() {
 </script>
 
 <template>
-  <div class="logo">
+  <div :class="['logo', { active, sidelined }]">
     <div class="logo-mask" @click="activate">
-      <img src="../assets/img/logo.png" :class="['logo-img', { active }]" />
+      <img src="../assets/img/logo.png" class="logo-img" />
     </div>
   </div>
 </template>
@@ -41,7 +45,23 @@ function activate() {
   justify-content: center;
   align-items: center;
   position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
   user-select: none;
+  z-index: 1;
+  will-change: rotate, left;
+  transition: rotate 1100ms, left 1000ms;
+}
+
+.logo.active {
+  rotate: 180deg;
+  left: 35%;
+}
+
+.logo.active.sidelined {
+  rotate: 360deg;
+  left: 20%;
 }
 
 .logo-mask {
@@ -49,27 +69,23 @@ function activate() {
   width: var(--mask-size);
   border-radius: 50%;
   position: relative;
+  z-index: 2;
 }
 
 .logo-img {
   height: var(--img-size);
-  border-radius: 50%;
-  will-change: filter, rotate, translate;
-  transition: filter 300ms, rotate 1100ms, translate 1000ms;
   position: absolute;
+  border-radius: 50%;
   top: 49.5%;
   left: 49.5%;
   translate: -50% -50%;
   cursor: pointer;
+  will-change: filter;
+  transition: filter 300ms;
 }
 
 .logo-mask:hover .logo-img,
-.logo-img.active {
+.logo.active .logo-img {
   filter: drop-shadow(0 0 2em var(--clr-red1));
-}
-
-.logo-img.active {
-  rotate: 180deg;
-  translate: -125% -50%;
 }
 </style>

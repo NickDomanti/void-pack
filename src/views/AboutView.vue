@@ -4,7 +4,7 @@ import { store } from '../store'
 
 <template>
   <div
-    class="about dark-bg"
+    class="about dark-bg glare"
     v-html="store[$route.params.content as 'history' | 'manifesto' | 'charter']"
   ></div>
 </template>

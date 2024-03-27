@@ -1,12 +1,18 @@
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
+import { computed, onMounted, ref } from 'vue'
 import BlockedAccess from './components/BlockedAccess.vue'
 import Decryption from './components/Decryption.vue'
 import InteractiveLogo from './components/InteractiveLogo.vue'
 import { store } from './store'
 import { AccessStatus } from './types/access-status'
+import { useRoute } from 'vue-router'
 
 const access = ref<AccessStatus>('denied')
+const route = useRoute()
+
+const enlargeRouterView = computed(
+  () => route.name === 'About' && access.value === 'granted'
+)
 
 onMounted(async () => await store.value.populateContent())
 </script>
@@ -20,21 +26,26 @@ onMounted(async () => await store.value.populateContent())
       <h1>Void-Pack</h1>
     </header>
     <main>
-      <InteractiveLogo @active-toggled="(a) => (access = a)" />
+      <InteractiveLogo
+        @active-toggled="(a) => (access = a)"
+        :sidelined="enlargeRouterView"
+      />
 
       <RouterView v-slot="{ Component }">
-        <div class="main-content">
-          <Transition mode="out-in">
-            <BlockedAccess
-              v-if="access === 'requested'"
-              @correct-input="access = 'decrypting'"
-            />
-            <Decryption
-              v-else-if="access === 'decrypting'"
-              @decryption-completed="access = 'granted'"
-            />
-            <component v-else-if="access === 'granted'" :is="Component" />
-          </Transition>
+        <div :class="['main-content-wrapper', { large: enlargeRouterView }]">
+          <div class="main-content">
+            <Transition mode="out-in">
+              <BlockedAccess
+                v-if="access === 'requested'"
+                @correct-input="access = 'decrypting'"
+              />
+              <Decryption
+                v-else-if="access === 'decrypting'"
+                @decryption-completed="access = 'granted'"
+              />
+              <component v-else-if="access === 'granted'" :is="Component" />
+            </Transition>
+          </div>
         </div>
       </RouterView>
     </main>
@@ -108,15 +119,30 @@ footer p {
 
 main {
   width: 100svw;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-grow: 1;
+  position: relative;
+}
+
+.main-content-wrapper {
+  box-sizing: border-box;
+  position: absolute;
+  top: 50%;
+  left: 65%;
+  translate: -50% -50%;
+  height: 100%;
+  width: 60svw;
+  padding: 0 20svw;
+  will-change: padding;
+  transition: padding;
+  transition-delay: 500ms;
+}
+
+.main-content-wrapper.large {
+  padding: 0;
 }
 
 .main-content {
-  translate: 50% 0;
-  height: 50svh;
-  width: 35svw;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
