@@ -132,13 +132,14 @@ main {
   height: 100%;
   width: 60svw;
   padding: 0 20svw;
-  will-change: padding;
-  transition: padding;
+  will-change: padding, top;
+  transition: padding, top;
   transition-delay: 500ms;
 }
 
 .main-content-wrapper.large {
   padding: 0;
+  top: 60%;
 }
 
 .main-content {
