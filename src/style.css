@@ -43,7 +43,7 @@
   --clr-red1: #fd0202;
   --clr-red2: #700504;
   --clr-red3: #4f0707;
-  --clr-red4: #370d0c;
+  --clr-red4: rgba(35, 0, 0, 0.5);
 
   --screen-xxl: 1536px;
   --screen-xl: 1280px;

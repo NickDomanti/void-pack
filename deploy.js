@@ -1,14 +1,13 @@
 import { Client } from 'basic-ftp'
 
 const client = new Client()
+console.log('\nDeploying to production...')
 
 await client.access({
   host: process.env.FTP_HOST,
   user: process.env.FTP_USER,
   password: process.env.FTP_PASS
 })
-
-console.log('\nDeploying to production...')
 console.log('\x1b[32m%s\x1b[0m', '✓', 'Connected to FTP server')
 
 await client.uploadFromDir('dist')
