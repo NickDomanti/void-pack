@@ -139,7 +139,6 @@ main {
 
 .main-content-wrapper.large {
   padding: 0;
-  top: 65%;
 }
 
 .main-content {

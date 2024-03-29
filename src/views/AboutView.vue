@@ -24,7 +24,8 @@ import { store } from '../store'
 
 .go-back {
   position: absolute;
-  top: -4rem;
+  top: -3.5rem;
+  right: 0;
 }
 
 .about-content {
