@@ -62,6 +62,7 @@ function activate() {
 .logo.active.sidelined {
   rotate: 360deg;
   left: 20%;
+  transition-delay: 500ms;
 }
 
 .logo-mask {

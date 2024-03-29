@@ -10,9 +10,17 @@ const emit = defineEmits<{
   (e: 'decryption-completed'): void
 }>()
 
+const decryptionAudio = getAudio(decryptionSound, 0.5)
+let decryptionSkipped = false
+
 onMounted(async () => {
-  getAudio(decryptionSound, 0.5).play()
+  window.addEventListener('keydown', skipDecryption)
+
+  decryptionAudio.play()
   await delay(13.5)
+
+  if (decryptionSkipped) return
+  window.removeEventListener('keydown', skipDecryption)
 
   glare.value = true
   await delay(0.8)
@@ -22,6 +30,16 @@ onMounted(async () => {
 
   emit('decryption-completed')
 })
+
+function skipDecryption(ev: KeyboardEvent) {
+  if (ev.key !== 's') return
+
+  decryptionSkipped = true
+  decryptionAudio.pause()
+  window.removeEventListener('keydown', skipDecryption)
+
+  emit('decryption-completed')
+}
 </script>
 
 <template>
