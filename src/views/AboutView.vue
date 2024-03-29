@@ -4,6 +4,7 @@ import { store } from '../store'
 
 <template>
   <div class="about dark-bg glare">
+    <RouterLink to="/" class="go-back"><< Go back to directory</RouterLink>
     <div
       class="about-content"
       v-html="store[$route.params.content as 'history' | 'manifesto' | 'charter']"
@@ -18,6 +19,12 @@ import { store } from '../store'
   padding: 0.5rem;
   display: flex;
   box-sizing: border-box;
+  position: relative;
+}
+
+.go-back {
+  position: absolute;
+  top: -4rem;
 }
 
 .about-content {
@@ -29,10 +36,6 @@ import { store } from '../store'
   display: flex;
   flex-direction: column;
   gap: 1rem;
-}
-
-.about-content :deep(a) {
-  text-decoration: underline;
 }
 
 .about-content :deep(.markitup-text *) {

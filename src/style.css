@@ -104,7 +104,12 @@ h6 {
 
 a {
   color: var(--clr-red1);
-  text-decoration: none;
+  will-change: text-shadow;
+  transition: text-shadow 100ms;
+}
+
+a:hover {
+  text-shadow: 0 0 20px var(--clr-red1);
 }
 
 .dark-bg {

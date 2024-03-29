@@ -37,6 +37,8 @@ a {
   padding: 1rem 3rem;
   will-change: background-color;
   transition: background-color 100ms;
+  text-decoration: none;
+  text-shadow: none;
 }
 
 a:hover {
