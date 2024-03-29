@@ -7,7 +7,7 @@ import { store } from '../store'
     <RouterLink to="/" class="go-back"><< Go back to directory</RouterLink>
     <div
       class="about-content"
-      v-html="store[$route.params.content as 'history' | 'manifesto' | 'charter']"
+      v-html="store[$route.params.content as keyof typeof store]"
     ></div>
   </div>
 </template>
@@ -29,7 +29,7 @@ import { store } from '../store'
 }
 
 .about-content {
-  padding: 1rem;
+  padding: 0.5rem;
   overflow: auto;
 }
 

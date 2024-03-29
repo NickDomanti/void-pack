@@ -5,10 +5,13 @@ import hoverSound from '../assets/audio/hover.mp3'
 import successSound from '../assets/audio/success.mp3'
 
 onMounted(() => {
-  document.querySelectorAll('a').forEach((el) => {
-    el.onmouseenter = () => getAudio(hoverSound, 0.4).play()
-    el.onclick = () => getAudio(successSound, 0.8).play()
-  })
+  document
+    .querySelector('.home')
+    ?.querySelectorAll('a')
+    .forEach((el) => {
+      el.onmouseenter = () => getAudio(hoverSound, 0.4).play()
+      el.onclick = () => getAudio(successSound, 0.8).play()
+    })
 })
 </script>
 

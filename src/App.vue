@@ -23,7 +23,9 @@ onMounted(async () => await store.value.populateContent())
     <div class="bg-2"></div>
 
     <header>
-      <h1>Void-Pack</h1>
+      <h1>
+        <RouterLink to="/" class="header-link">Void-Pack</RouterLink>
+      </h1>
     </header>
     <main>
       <InteractiveLogo
@@ -110,6 +112,10 @@ h3 {
   font-family: Glitch;
   text-shadow: 0 0 20px var(--clr-red1);
   margin: 0;
+}
+
+.header-link {
+  text-decoration: none;
 }
 
 footer p {
