@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, watch } from 'vue'
 import sound from '../assets/audio/welcome.mp3'
 import { getAudio } from '../utils'
 import { AccessStatus } from '../types/access-status'
 
-defineProps<{
+const props = defineProps<{
   sidelined: boolean
 }>()
 
@@ -23,10 +23,18 @@ function activate() {
   active.value = !active.value
   emit('active-toggled', active.value ? 'requested' : 'denied')
 }
+
+const sidelinedActual = ref(props.sidelined)
+watch(
+  () => props.sidelined,
+  (newVal) =>
+    setTimeout(() => (sidelinedActual.value = newVal), newVal ? 0 : 500)
+  // delays logo transition when going from large main-content to small
+)
 </script>
 
 <template>
-  <div :class="['logo', { active, sidelined }]">
+  <div :class="['logo', { active, sidelined: sidelinedActual }]">
     <div class="logo-mask" @click="activate">
       <img src="../assets/img/logo.png" class="logo-img" />
     </div>
