@@ -3,7 +3,7 @@ import { computed, onMounted, ref } from 'vue'
 import BlockedAccess from './components/BlockedAccess.vue'
 import Decryption from './components/Decryption.vue'
 import InteractiveLogo from './components/InteractiveLogo.vue'
-import { store } from './store'
+import { contentStore } from './store/content'
 import { AccessStatus } from './types/access-status'
 import { useRoute } from 'vue-router'
 
@@ -14,7 +14,7 @@ const enlargeRouterView = computed(
   () => route.name === 'About' && access.value === 'granted'
 )
 
-onMounted(async () => await store.value.populateContent())
+onMounted(async () => await contentStore.value.populateContent())
 </script>
 
 <template>
@@ -178,3 +178,4 @@ main {
   }
 }
 </style>
+./store/store

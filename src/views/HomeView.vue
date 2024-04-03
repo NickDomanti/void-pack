@@ -17,10 +17,11 @@ onMounted(() => {
 
 <template>
   <div class="home dark-bg glare">
-    <RouterLink to="/about/history">I. History</RouterLink>
-    <RouterLink to="/about/manifesto">II. Manifesto</RouterLink>
-    <RouterLink to="/about/charter">III. Charter</RouterLink>
-    <RouterLink to="/organization">IV. Organization</RouterLink>
+    <RouterLink to="/intel">I. Intel & Espionage</RouterLink>
+    <RouterLink to="/trading">II. Intra-Organization Trading</RouterLink>
+    <RouterLink to="/about/history">III. History</RouterLink>
+    <RouterLink to="/about/manifesto">IV. Manifesto</RouterLink>
+    <RouterLink to="/about/charter">V. Charter</RouterLink>
   </div>
 </template>
 

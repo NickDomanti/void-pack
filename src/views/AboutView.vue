@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { store } from '../store'
+import { contentStore } from '../store/content'
 </script>
 
 <template>
@@ -7,7 +7,7 @@ import { store } from '../store'
     <RouterLink to="/" class="go-back"><< Go back to directory</RouterLink>
     <div
       class="about-content"
-      v-html="store[$route.params.content as keyof typeof store]"
+      v-html="contentStore[$route.params.content as keyof typeof contentStore]"
     ></div>
   </div>
 </template>
@@ -59,3 +59,4 @@ import { store } from '../store'
   background: var(--clr-red1);
 }
 </style>
+../store/store

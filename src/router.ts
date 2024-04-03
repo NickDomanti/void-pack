@@ -12,6 +12,16 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import('./views/AboutView.vue')
   },
   {
+    path: '/intel',
+    name: 'Intel',
+    component: () => import('./views/IntelView.vue')
+  },
+  // {
+  //   path: '/trading',
+  //   name: 'Trading',
+  //   component: () => import('./views/TradingView.vue')
+  // },
+  {
     path: '/:catchall(.*)',
     name: 'Not Found',
     component: () => import('./views/NotFoundView.vue')

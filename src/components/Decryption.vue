@@ -32,7 +32,7 @@ onMounted(async () => {
 })
 
 function skipDecryption(ev: KeyboardEvent) {
-  if (ev.key !== 's') return
+  if (ev.key !== 's' && ev.key !== 'S') return
 
   decryptionSkipped = true
   decryptionAudio.pause()
