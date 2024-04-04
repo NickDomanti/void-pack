@@ -42,21 +42,4 @@ import { contentStore } from '../store/content'
 .about-content :deep(.markitup-text *) {
   margin: 0;
 }
-
-.about-content::-webkit-scrollbar {
-  width: 0.5rem;
-}
-
-.about-content::-webkit-scrollbar-track {
-  background: var(--clr-red4);
-}
-
-.about-content::-webkit-scrollbar-thumb {
-  background: var(--clr-red2);
-}
-
-.about-content::-webkit-scrollbar-thumb:hover {
-  background: var(--clr-red1);
-}
 </style>
-../store/store
