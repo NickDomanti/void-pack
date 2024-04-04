@@ -11,7 +11,7 @@ const access = ref<AccessStatus>('denied')
 const route = useRoute()
 
 const enlargeRouterView = computed(
-  () => route.name === 'About' && access.value === 'granted'
+  () => !!route.meta.isLargeView && access.value === 'granted'
 )
 
 onMounted(async () => await contentStore.value.populateContent())

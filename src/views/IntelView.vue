@@ -10,7 +10,7 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div class="intel dark-bg glare">
+  <div v-if="rankings?.length" class="intel dark-bg glare">
     <div v-for="r in rankings" :key="r.id">
       {{ r.code }}
     </div>

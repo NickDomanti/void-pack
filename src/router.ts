@@ -1,5 +1,11 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 
+declare module 'vue-router' {
+  interface RouteMeta {
+    isLargeView: boolean
+  }
+}
+
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
@@ -9,12 +15,18 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/about/:content',
     name: 'About',
-    component: () => import('./views/AboutView.vue')
+    component: () => import('./views/AboutView.vue'),
+    meta: {
+      isLargeView: true
+    }
   },
   {
     path: '/intel',
     name: 'Intel',
-    component: () => import('./views/IntelView.vue')
+    component: () => import('./views/IntelView.vue'),
+    meta: {
+      isLargeView: true
+    }
   },
   // {
   //   path: '/trading',
