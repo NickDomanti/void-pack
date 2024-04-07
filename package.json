@@ -11,12 +11,14 @@
   },
   "dependencies": {
     "@vueuse/core": "^10.9.0",
+    "ag-grid-vue3": "^31.2.0",
     "simple-keyboard": "^3.7.69",
     "vue": "^3.4.21",
     "vue-router": "^4.3.0"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.0.4",
+    "ag-grid-community": "^31.2.0",
     "basic-ftp": "^5.0.5",
     "typescript": "^5.2.2",
     "vite": "^5.1.6",

@@ -3,14 +3,19 @@ import { UexCommodityRanking } from '../types/uex'
 
 export function useUexService() {
   const baseApiUrl = 'https://ptu.uexcorp.space/api'
+  const loading = ref(false)
 
   async function fetchData(endpoint: string) {
+    loading.value = true
+
     const resp = await fetch(baseApiUrl + '/' + endpoint, {
       headers: {
         Authorization: `Bearer ${import.meta.env.VITE_UEX_API_KEY}`
       }
     })
     const { data } = await resp.json()
+
+    loading.value = false
     return data
   }
 
@@ -21,6 +26,7 @@ export function useUexService() {
   }
 
   return {
+    loading,
     rankings,
     fetchRankings
   }

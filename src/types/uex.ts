@@ -64,26 +64,28 @@ export type UexCommodityRanking = {
   slug: string
   name: string
   is_temporary: boolean
-  price_buy_avg_month: number
-  price_sell_avg_month: number
-  scu_buy_avg_month: number
-  scu_sell_avg_month: number
-  status_buy_avg_month: number
-  status_sell_avg_month: number
+  is_illegal: boolean
+  price_buy_avg: number
+  price_sell_avg: number
+  scu_buy_avg: number
+  scu_sell_avg: number
+  status_buy_avg: number
+  status_sell_avg: number
   volatility_buy: number
   volatility_sell: number
   cax_score: number
   investment: number
   investment_per_scu: number
+  is_average_trade_price_invalid: boolean
   profitability: number
   profitability_relative_percentage: number
   profitability_per_scu: number
   availability_buy: number
   availability_sell: number
   price_buy_minimum: number
-  price_sell_maximum: number
   terminal_id_price_buy_minimum: number
-  terminal_slug_price_buy_minimum: number
+  terminal_slug_price_buy_minimum: string
+  price_sell_maximum: number
   terminal_id_price_sell_maximum: number
-  terminal_slug_price_sell_maximum: number
+  terminal_slug_price_sell_maximum: string
 }
