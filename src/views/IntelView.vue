@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import 'ag-grid-community/styles/ag-grid.css'
+import 'ag-grid-community/styles/ag-grid.min.css'
+import 'ag-grid-community/styles/agGridClassicFont.min.css'
 import { AgGridVue } from 'ag-grid-vue3'
 import { useGridRankings } from '../composables/grid-rankings'
 import { GridOptions } from 'ag-grid-community'
@@ -46,6 +47,8 @@ const { rowData, colDefs, options } = useGridRankings()
   --ag-borders: 1px solid;
   --ag-border-color: var(--clr-red2);
   --ag-header-column-separator-display: block;
+
+  --ag-icon-font-family: agGridClassic;
 }
 
 .ag-theme-vp :deep(.ag-header) {
@@ -56,12 +59,9 @@ const { rowData, colDefs, options } = useGridRankings()
   justify-content: center;
 }
 
-.ag-theme-vp :deep(.grid-index) {
-  padding: 0;
-}
-
 .ag-theme-vp :deep(.ag-horizontal-left-spacer) {
-  visibility: hidden;
+  border-top: 2px solid var(--clr-red2);
+  overflow-x: hidden;
 }
 
 .ag-theme-vp :deep(.ag-overlay-loading-center) {

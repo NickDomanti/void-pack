@@ -17,7 +17,8 @@ export function useGridRankings() {
       valueGetter: (row) => (row.node?.rowIndex ?? 0) + 1,
       width: 75,
       pinned: 'left',
-      suppressMovable: true
+      suppressMovable: true,
+      sortable: false
     },
     {
       headerName: 'Commodity',
@@ -82,8 +83,12 @@ export function useGridRankings() {
   ])
 
   const options = ref<GridOptions<UexCommodityRanking>>({
-    groupHeaderHeight: 40,
-    autoSizeStrategy: { type: 'fitCellContents' }
+    groupHeaderHeight: 50,
+    headerHeight: 35,
+    autoSizeStrategy: { type: 'fitCellContents' },
+    defaultColDef: {
+      unSortIcon: true
+    }
   })
 
   return {
