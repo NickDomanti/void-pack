@@ -10,6 +10,7 @@ const { rowData, colDefs, options } = useGridRankings()
 
 <template>
   <div class="intel dark-bg glare">
+    <RouterLink to="/" class="go-back"><< Go back to directory</RouterLink>
     <AgGridVue
       :row-data="rowData"
       :column-defs="colDefs"
@@ -25,6 +26,13 @@ const { rowData, colDefs, options } = useGridRankings()
   height: 100%;
   width: 100%;
   display: flex;
+  position: relative;
+}
+
+.go-back {
+  position: absolute;
+  top: -3.5rem;
+  right: 0;
 }
 
 .ag-theme-vp {
